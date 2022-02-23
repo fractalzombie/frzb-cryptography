@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+  
+  FRZB\Component\Cryptography\Service\CryptographyService:
+    arguments:
+    - '%env(FRZB_CRYPTOGRAPHY_IV)%'
+    - '%env(FRZB_CRYPTOGRAPHY_KEY)%'
+  
+  FRZB\Component\Cryptography\Service\CryptographyInterface: '@FRZB\Component\Cryptography\Service\CryptographyService'
+  FRZB\Component\Cryptography\Service\DecryptInterface: '@FRZB\Component\Cryptography\Service\CryptographyService'
+  FRZB\Component\Cryptography\Service\EncryptInterface: '@FRZB\Component\Cryptography\Service\CryptographyService'

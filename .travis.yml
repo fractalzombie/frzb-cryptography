@@ -1,0 +1,17 @@
+language: php
+dist: focal
+
+matrix:
+  include:
+    - php: 8.0
+
+install:
+  - travis_retry composer install
+
+script:
+  - mkdir -p build/logs
+  - php vendor/bin/phpunit --colors=always --configuration phpunit.xml.dist --log-junit build/logs/.phpunit.output.xml --coverage-clover build/logs/clover.xml
+
+after_success:
+  - vendor/bin/php-coveralls -v
+  - bash <(curl -s https://codecov.io/bash)
