@@ -14,8 +14,8 @@
     </php>
 
     <testsuites>
-        <testsuite name="Symfony Cryptography Component Test Suite">
-            <directory>./Tests/</directory>
+        <testsuite name="Symfony Cryptography Component Unit Test Suite">
+            <directory>./Tests/Unit/</directory>
         </testsuite>
     </testsuites>
 
@@ -27,7 +27,7 @@
             <directory>./Tests</directory>
             <directory>./Resources</directory>
             <directory>./vendor</directory>
-            <file>./.php-cs-fixer.dist.php</file>
+            <file>./.php-cs-fixer.php</file>
             <file>./CryptographyBundle.php</file>
             <file>./CryptographyExtension.php</file>
         </exclude>

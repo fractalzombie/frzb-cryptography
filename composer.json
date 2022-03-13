@@ -3,7 +3,7 @@
     "type": "symfony-cryptography-library",
     "description": "Cryptography for symfony messenger and symfony http client",
     "keywords": [],
-    "homepage": "https://symfony.com",
+    "homepage": "https://github.com/fractalzombie/frzb-cryptography",
     "license": "MIT",
     "authors": [
         {
@@ -16,13 +16,13 @@
         }
     ],
     "require": {
-        "php": "^8.0|^8.1",
+        "php": "^8.1",
         "symfony/messenger": "^5.4|^6.0",
         "symfony/framework-bundle": "^5.4|^6.0",
         "symfony/dependency-injection": "^5.4|^6.0",
         "symfony/serializer": "^5.4|^6.0",
         "symfony/yaml": "^5.4|^6.0",
-        "phpseclib/phpseclib": "^3.0"
+        "phpseclib/phpseclib": "^2.0"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
@@ -33,7 +33,6 @@
         "symfony/event-dispatcher": "^5.4|^6.0",
         "symfony/process": "^5.4|^6.0",
         "symfony/property-access": "^5.4|^6.0",
-        "symfony/serializer": "^5.4|^6.0",
         "symfony/var-dumper": "^5.4|^6.0",
         "symfony/uid": "^5.4|^6.0",
         "whsv26/functional": "^4.10",

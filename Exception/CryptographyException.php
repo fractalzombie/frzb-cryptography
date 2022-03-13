@@ -2,17 +2,16 @@
 
 declare(strict_types=1);
 
-
 namespace FRZB\Component\Cryptography\Exception;
-
 
 use JetBrains\PhpStorm\Pure;
 
 class CryptographyException extends \LogicException
 {
-    private const DECRYPT_FAILURE_MESSAGE = 'Decrypt of payload is failure';
-    private const ENCRYPT_FAILURE_MESSAGE = 'Encrypt of payload is failure';
-    private const NOT_ENCRYPTED_PAYLOAD_MESSAGE = 'Payload is not encrypted';
+    public const DECRYPT_FAILURE_MESSAGE = 'Decrypt of payload is failure';
+    public const ENCRYPT_FAILURE_MESSAGE = 'Encrypt of payload is failure';
+    public const DECODE_BASE64_FAILURE_MESSAGE = 'Decode of base64 payload is failure';
+    public const NOT_ENCRYPTED_PAYLOAD_MESSAGE = 'Payload is not encrypted';
 
     public static function fromThrowable(\Throwable $previous): self
     {
@@ -29,6 +28,12 @@ class CryptographyException extends \LogicException
     public static function encryptFailure(): self
     {
         return new self(self::ENCRYPT_FAILURE_MESSAGE);
+    }
+
+    #[Pure]
+    public static function decodeFailure(): self
+    {
+        return new self(self::DECODE_BASE64_FAILURE_MESSAGE);
     }
 
     #[Pure]

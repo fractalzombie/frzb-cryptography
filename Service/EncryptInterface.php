@@ -2,9 +2,7 @@
 
 declare(strict_types=1);
 
-
 namespace FRZB\Component\Cryptography\Service;
-
 
 use FRZB\Component\Cryptography\Exception\CryptographyException;
 

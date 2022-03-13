@@ -18,14 +18,10 @@ jobs:
         strategy:
             matrix:
                 php:
-                - "8.0"
-                - "8.1"
+                    - "8.1"
                 include:
-                - php-version: "8.0"
-                  composer-options: "--ignore-platform-reqs"
-                
-                - php-version: "8.1"
-                  composer-options: "--ignore-platform-reqs"
+                    - php-version: "8.1"
+                      composer-options: "--ignore-platform-reqs"
         
         steps:
         - name: Checkout
@@ -40,7 +36,7 @@ jobs:
               tools: pecl, phpunit, composer
               ini-values: post_max_size=256M
           env:
-              runner: request-mapper
+              runner: cryptography
         
         - name: Setup Composer
           uses: ramsey/composer-install@v1
@@ -64,4 +60,7 @@ jobs:
           run: composer update --prefer-dist --no-progress
         
         - name: Unit Tests
-          run: ./vendor/bin/phpunit --colors=always --verbose --configuration phpunit.xml.dist --log-junit var/tests/.phpunit.output.xml
+          run: mkdir -p build/logs && ./vendor/bin/phpunit --colors=always --verbose --configuration phpunit.xml.dist --log-junit build/logs/.phpunit.output.xml --coverage-clover build/logs/clover.xml
+          
+        - name: Codecov
+          run: bash <(curl -s https://codecov.io/bash) 54c21698-8816-48d1-93bf-63ffbcfa6b2a

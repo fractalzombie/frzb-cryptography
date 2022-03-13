@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace FRZB\Component\Cryptography\Integration;
+namespace FRZB\Component\Cryptography\Integration\Symfony\Messenger\Serializer;
 
 use FRZB\Component\Cryptography\Service\CryptographyInterface as CryptographyService;
 use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\Transport\Serialization\Serializer as BaseSerializer;
 use Symfony\Component\Serializer\SerializerInterface as Serializer;
 
-abstract class CryptoSerializer extends BaseSerializer
+class InternalCryptoSerializer extends BaseSerializer
 {
     private CryptographyService $crypto;
 
@@ -41,15 +41,13 @@ abstract class CryptoSerializer extends BaseSerializer
         ];
     }
 
-    abstract protected static function getMessageType(): string;
-
     private static function getBody(array $decodedEnvelope): ?string
     {
         return $decodedEnvelope['body'] ?? '{}';
     }
 
-    private static function getHeaders(array $decodedEnvelope): array
+    protected static function getHeaders(array $decodedEnvelope): array
     {
-        return array_merge($decodedEnvelope['headers'] ?? [], ['type' => static::getMessageType()]);
+        return $decodedEnvelope['headers'] ?? [];
     }
 }
