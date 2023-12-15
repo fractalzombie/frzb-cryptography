@@ -4,7 +4,7 @@ services:
   php:
     build:
       context: ../
-      dockerfile: .docker/php/8.1/Dockerfile
+      dockerfile: php/Dockerfile
     environment:
       FRZB_CRYPTOGRAPHY_KEY: ${FRZB_CRYPTOGRAPHY_KEY}
       FRZB_CRYPTOGRAPHY_IV: ${FRZB_CRYPTOGRAPHY_IV}

@@ -1,4 +1,4 @@
-FROM arm64v8/php:8.1-cli-bullseye
+FROM arm64v8/php:8.3-cli-bullseye
 
 ENV COMPOSER_ALLOW_SUPERUSER=1
 ENV PATH=$HOME/.composer/vendor/bin:$PATH
@@ -36,8 +36,8 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
     && ln -s $(composer config --global home) $HOME/.composer
 
 # Configure PHP
-COPY .docker/php/8.1/conf/conf.d/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-COPY .docker/php/8.1/conf/php.development.ini /usr/local/etc/php/php.ini
+COPY .docker/php/conf/conf.d/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+COPY .docker/php/conf/php.development.ini /usr/local/etc/php/php.ini
 
 WORKDIR /var/www/html
 
