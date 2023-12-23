@@ -23,7 +23,7 @@
         "symfony/serializer": "^5.4|^6|^7",
         "symfony/yaml": "^5.4|^6|^7",
         "phpseclib/phpseclib": "^2.0",
-        "fp4php/functional": "^4.20"
+        "fp4php/functional": "^4.20|^6"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
